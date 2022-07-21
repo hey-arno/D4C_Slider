@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slick Playground</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="./slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
+  <style type="text/css">
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .slider {
+      display: flex
+    }
+
+    .slick-slide {
+      background-color: black; 
+      margin: 45px 10px 10px 10px;
+      height: auto;
+      transition: all ease-in-out .3s;
+      opacity: .2;
+    }
+
+    .slick-slide img {
+      width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+      color: black;
+    }
+
+    .slick-active {
+      opacity: .5;
+    }
+
+    .slick-current {
+      opacity: 1;
+      /* -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      transform: scale(1.1); */
+      /* -- these values might help to make centre slide larger  */
+    } 
+    .slick-current img {
+      transform: scale(1.0);
+       /* transform will increase the size of the current frame with values over 1.0
+      and this works nicely with the nnavigator slides bringing the current one forward, 
+      but this value is applied to both the sliders (big and small) and adjusting scale above 1.0 has
+      curious effects on the main slider window -- how to adjust so that code reflects different CSS for 
+      two active windows? */
+    }  
+
+  </style>
+</head>
+<body>
+  <section class="slider-for">
+    <div><img src="https://via.placeholder.com/500x800.png?text=Student 1"></div>
+    <div><img src="https://via.placeholder.com/500x800.png?text=Student 2"></div>
+    <div><img src="https://via.placeholder.com/500x800.png?text=Student 3"></div>
+    <div><img src="https://via.placeholder.com/500x800.png?text=Student 4"></div>
+    <div><img src="https://via.placeholder.com/500x800.png?text=Student 5"></div>
+    <div><img src="https://via.placeholder.com/500x800.png?text=Student 6"></div>
+    <div><img src="https://via.placeholder.com/500x800.png?text=Student 7"></div>
+    <div><img src="https://via.placeholder.com/500x800.png?text=Student 8"></div>
+    <div><img src="https://via.placeholder.com/500x800.png?text=Student 9"></div>
+  </section>
+  
+  <section class="slider-nav">
+    <div><img src="https://via.placeholder.com/100x100?text=1"></div>
+    <div><img src="https://via.placeholder.com/100x100?text=2"></div>
+    <div><img src="https://via.placeholder.com/100x100?text=3"></div>
+    <div><img src="https://via.placeholder.com/100x100?text=4"></div>
+    <div><img src="https://via.placeholder.com/100x100?text=5"></div>
+    <div><img src="https://via.placeholder.com/100x100?text=6"></div>
+    <div><img src="https://via.placeholder.com/100x100?text=7"></div>
+    <div><img src="https://via.placeholder.com/100x100?text=8"></div>
+    <div><img src="https://via.placeholder.com/100x100?text=9"></div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+  <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(document).on('ready', function() {
+      $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider-nav'
+      });
+      $('.slider-nav').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: true,
+        centerMode: true,
+        focusOnSelect: true
+      });
+    });
+</script>
+
+</body>
+</html>
